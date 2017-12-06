@@ -1,4 +1,4 @@
-module DateTimePicker.Css exposing (css)
+module DateTimePicker.Css exposing (css, cssWithNamespace)
 
 {-| DateTimePicker.Css
 
@@ -8,27 +8,27 @@ Include this in your elm-css port module to be included in your project's css fi
 
 # Css
 
-@docs css
+@docs css, cssWithNamespace
 
 -}
 
 import Css exposing (..)
 import Css.Elements exposing (..)
-import Css.Namespace exposing (namespace)
+import Css.Namespace
 import DateTimePicker.Config exposing (defaultNamespace)
 import DateTimePicker.SharedStyles exposing (CssClasses(..))
 import Html.CssHelpers
 
 
-datepickerNamespace =
-    Html.CssHelpers.withNamespace defaultNamespace
-
-
-{-| DatePicker's Css Stylesheet
+{-| DatePicker's Css Stylesheet with custom namespace
 -}
-css : Css.Stylesheet
-css =
-    (Css.stylesheet << namespace datepickerNamespace.name)
+cssWithNamespace : String -> Css.Stylesheet
+cssWithNamespace namespace =
+    let
+        datepickerNamespace =
+            Html.CssHelpers.withNamespace namespace
+    in
+    (Css.stylesheet << Css.Namespace.namespace datepickerNamespace.name)
         [ class DatePicker
             [ position relative ]
         , class Dialog
@@ -43,6 +43,13 @@ css =
             , displayFlex
             ]
         ]
+
+
+{-| DatePicker's Css Stylesheet
+-}
+css : Css.Stylesheet
+css =
+    cssWithNamespace defaultNamespace
 
 
 dialogCss : List Css.Snippet
