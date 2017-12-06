@@ -1,0 +1,27 @@
+{
+  "name": "datetimepicker-css",
+  "version": "1.0.0",
+  "description": "Elm CSS package for DateTimePicker",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "css": "elm-css src/Stylesheets.elm --output ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abadi199/datetimepicker-css.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abadi199/datetimepicker-css/issues"
+  },
+  "homepage": "https://github.com/abadi199/datetimepicker-css#readme",
+  "devDependencies": {
+    "elm": "^0.18.0",
+    "elm-css": "^0.6.0",
+    "elm-test": "0.18.7"
+  }
+}
