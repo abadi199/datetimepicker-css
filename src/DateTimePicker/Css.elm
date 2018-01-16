@@ -29,21 +29,21 @@ cssWithNamespace namespace =
         datepickerNamespace =
             Html.CssHelpers.withNamespace namespace
     in
-        (stylesheet << Namespace.namespace datepickerNamespace.name)
-            [ class DatePicker
-                [ position relative ]
-            , class Dialog
-                [ fontFamilies [ "Arial", "Helvetica", "sans-serif" ]
-                , fontSize (px 14)
-                , borderBoxStyle
-                , position absolute
-                , border3 (px 1) solid darkGray
-                , boxShadow4 (px 0) (px 5) (px 10) (rgba 0 0 0 0.2)
-                , children dialogCss
-                , property "z-index" "1"
-                , displayFlex
-                ]
+    (stylesheet << Namespace.namespace datepickerNamespace.name)
+        [ class DatePicker
+            [ position relative ]
+        , class Dialog
+            [ fontFamilies [ "Arial", "Helvetica", "sans-serif" ]
+            , fontSize (px 14)
+            , borderBoxStyle
+            , position absolute
+            , border3 (px 1) solid darkGray
+            , boxShadow4 (px 0) (px 5) (px 10) (rgba 0 0 0 0.2)
+            , children dialogCss
+            , property "z-index" "1"
+            , displayFlex
             ]
+        ]
 
 
 {-| DatePicker's Css Stylesheet
@@ -95,31 +95,31 @@ analogTimePickerDialogStyle =
                 , hover [ backgroundColor highlightedDay ]
                 ]
     in
-        [ width (px 230)
-        , descendants
-            [ class Header
-                [ headerStyle
-                , fontSize (Css.em 1.2)
-                , descendants
-                    [ class Hour [ timeHeaderStyle ]
-                    , class Minute [ timeHeaderStyle ]
-                    , class AMPM [ timeHeaderStyle ]
-                    , class Active
-                        [ activeStyle ]
-                    ]
-                ]
-            , class Body [ backgroundColor (hex "#fff"), padding2 (px 12) (px 15), height (px 202) ]
-            , class AMPMPicker [ padding2 (px 40) (px 0) ]
-            , class AM
-                [ amPmStyle
-                , withClass SelectedAmPm [ highlightStyle, hover [ highlightStyle ] ]
-                ]
-            , class PM
-                [ amPmStyle
-                , withClass SelectedAmPm [ highlightStyle, hover [ highlightStyle ] ]
+    [ width (px 230)
+    , descendants
+        [ class Header
+            [ headerStyle
+            , fontSize (Css.em 1.2)
+            , descendants
+                [ class Hour [ timeHeaderStyle ]
+                , class Minute [ timeHeaderStyle ]
+                , class AMPM [ timeHeaderStyle ]
+                , class Active
+                    [ activeStyle ]
                 ]
             ]
+        , class Body [ backgroundColor (hex "#fff"), padding2 (px 12) (px 15), height (px 202) ]
+        , class AMPMPicker [ padding2 (px 40) (px 0) ]
+        , class AM
+            [ amPmStyle
+            , withClass SelectedAmPm [ highlightStyle, hover [ highlightStyle ] ]
+            ]
+        , class PM
+            [ amPmStyle
+            , withClass SelectedAmPm [ highlightStyle, hover [ highlightStyle ] ]
+            ]
         ]
+    ]
 
 
 digitalTimePickerDialogStyle : List Css.Style
@@ -244,7 +244,6 @@ datePickerDialogCss =
         , backgroundColor lightGray
         , padding2 (px 7) (px 7)
         , borderTop3 (px 1) solid darkGray
-        , height (px 16)
         ]
     ]
 
